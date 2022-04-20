@@ -103,7 +103,7 @@ def calculate_slice_delay(sls_number, slices, topology, file_name):
 
                 # отправляем на вычислени в lp_solver
                 time_lp_solver_start = time.time()
-                args = ["./lp_solver/lp_solve", file_lp]
+                args = ["../lp_solver/lp_solve", file_lp]
                 process = subprocess.Popen(args, stdout=subprocess.PIPE)
                 data = process.communicate()
                 time_lp_solver_finish = max(time_lp_solver_finish, time.time() - time_lp_solver_start)
