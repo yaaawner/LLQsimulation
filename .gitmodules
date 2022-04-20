@@ -1,0 +1,3 @@
+[submodule "GG1delay"]
+	path = GG1delay
+	url = https://github.com/yaaawner/GG1delay.git
