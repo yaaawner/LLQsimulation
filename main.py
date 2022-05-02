@@ -101,12 +101,12 @@ def set_initial_parameters(slices, slices_order, topology):
 def create_start_service_curve(topology):
     # на каждом коммутаторе вычисляем задержку приоритета
     for sw in topology.switches.keys():
-        slicedelay.calculate_priority_delay(topology, sw)
+        slicedelay.calculate_priority_delay_mg1(topology, sw)
 
     # вычисляем задержку для каждой очереди
     for sw in topology.switches.keys():
         for pr in topology.switches[sw].priority_list:
-            slicedelay.calculate_queue_delay(pr)
+            slicedelay.calculate_queue_delay_mg1(pr)
     # print_queue_organization(topology)
 
 

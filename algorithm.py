@@ -35,10 +35,10 @@ def increase_priority(topology, sls_number, sw_number):
                 high_priority.recalculation()
                 curr_priority.recalculation()
                 # выполняем пересчет задержки приоритетов
-                slicedelay.calculate_priority_delay(topology, sw_number)
+                slicedelay.calculate_priority_delay_mg1(topology, sw_number)
                 # выполняем пересчет задержки для очередей внутри приоритетов
-                slicedelay.calculate_queue_delay(curr_priority)
-                slicedelay.calculate_queue_delay(high_priority)
+                slicedelay.calculate_queue_delay_mg1(curr_priority)
+                slicedelay.calculate_queue_delay_mg1(high_priority)
     print('increase_priority')
 
 
@@ -77,10 +77,10 @@ def decrease_priority(topology, sls_number, sw_number):
                 low_priority.recalculation()
                 curr_priority.recalculation()
                 # выполняем пересчет задержки приоритетов
-                slicedelay.calculate_priority_delay(topology, sw_number)
+                slicedelay.calculate_priority_delay_mg1(topology, sw_number)
                 # выполняем пересчет задержки для очередей внутри приоритетов
-                slicedelay.calculate_queue_delay(curr_priority)
-                slicedelay.calculate_queue_delay(low_priority)
+                slicedelay.calculate_queue_delay_mg1(curr_priority)
+                slicedelay.calculate_queue_delay_mg1(low_priority)
     print('decrease_priority')
 
 

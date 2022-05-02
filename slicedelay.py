@@ -2,7 +2,7 @@ import subprocess
 import time
 
 
-def calculate_priority_delay(topology, sw):
+def calculate_priority_delay_mg1(topology, sw):
     # вычисляем числитель
     numerator = 0
     for pr in topology.switches[sw].priority_list:
@@ -31,7 +31,7 @@ def calculate_priority_delay(topology, sw):
         pr.delay = numerator / denominator
 
 
-def calculate_queue_delay(pr):
+def calculate_queue_delay_mg1(pr):
     # вычисляем сумму минимальных требуемых скоростей для слайсов
     sum_r_k = 0
     for i in range(0, len(pr.queue_list)):
