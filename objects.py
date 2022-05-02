@@ -110,15 +110,15 @@ class Flow:
                     math.log(self.epsilon) + math.log(1 - math.exp(-theta * (rate - self.rho_a))))
         else:
             # print('K_критическое = ', CHI_SQUARE[s - 1], ' K_наблюдаемое = ', k_sum)
-            if CHI_SQUARE[s - 1] >= k_sum:
-                self.rho_a = lambda_medium
-                sigma_a = 0
-                theta = 1000
-                self.b_a = sigma_a - 1 / theta * (
-                        math.log(self.epsilon) + math.log(1 - math.exp(-theta * (rate - self.rho_a))))
+            #if CHI_SQUARE[s - 1] >= k_sum:
+            self.rho_a = lambda_medium
+            sigma_a = 0
+            theta = 1000
+            self.b_a = sigma_a - 1 / theta * (
+                       math.log(self.epsilon) + math.log(1 - math.exp(-theta * (rate - self.rho_a))))
                 # print('rho_a = ', self.rho_a, ' b_a = ', self.b_a)
-            else:
-                print('Not poisson distribution')
+            #else:
+                #print('Not poisson distribution')
         # print('rho_a =', self.rho_a, 'b_a =', self.b_a)
 
 

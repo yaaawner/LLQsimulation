@@ -5,7 +5,7 @@
 			"packet_size" : 0.008,
 			"bandwidth" : 31,
 			"qos_delay" : 0.7,
-			"estimate_delay" : 2.22942e-08,
+			"estimate_delay" : 0.0128287,
 			"flows" : [
 				{
 					"alpha" : 0.15,
@@ -29,7 +29,7 @@
 			"packet_size" : 0.01,
 			"bandwidth" : 48,
 			"qos_delay" : 3.8,
-			"estimate_delay" : 0.00089918,
+			"estimate_delay" : 0.0029751,
 			"flows" : [
 				{
 					"alpha" : 0.16,
