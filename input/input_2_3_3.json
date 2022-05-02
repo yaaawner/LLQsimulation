@@ -65,27 +65,27 @@
         {
           "path" : [3, 4, 5],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_1_1.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_1_1.csv"
         },
         {
           "path" : [6, 7, 8, 9, 10],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_1_2.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_1_2.csv"
         },
         {
           "path" : [7, 8, 9, 10],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_1_3.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_1_3.csv"
         },
         {
           "path" : [1, 2, 3, 4, 5, 6],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_1_4.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_1_4.csv"
         },
         {
           "path" : [8, 9, 10],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_1_5.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_1_5.csv"
         }
       ]
     },
@@ -98,17 +98,17 @@
         {
           "path" : [1, 2, 3, 4],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_2_1.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_2_1.csv"
         },
         {
           "path" : [2, 3, 4, 5, 6],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_2_2.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_2_2.csv"
         },
         {
           "path" : [8, 9],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_2_2.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_2_2.csv"
         }
       ]
     },
@@ -121,17 +121,17 @@
         {
           "path" : [1, 2, 3, 4],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_3_1.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_3_1.csv"
         },
         {
           "path" : [4, 5, 6, 7, 8],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_3_2.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_3_2.csv"
         },
         {
           "path" : [7, 8, 9, 10],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_3_3.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_3_3.csv"
         }
       ]
     },
@@ -144,17 +144,17 @@
         {
           "path" : [7, 8, 9],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_4_1.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_4_1.csv"
         },
         {
           "path" : [5, 6, 7, 8, 9, 10],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_4_2.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_4_2.csv"
         },
         {
           "path" : [1, 2],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_4_3.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_4_3.csv"
         }
       ]
     },
@@ -167,12 +167,12 @@
         {
           "path" : [4, 5, 6, 7, 8, 9],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_5_1.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_5_1.csv"
         },
         {
           "path" : [7, 8, 9, 10],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_5_2.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_5_2.csv"
         }
       ]
     },
@@ -185,12 +185,12 @@
         {
           "path" : [3, 4],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_6_1.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_6_1.csv"
         },
         {
           "path" : [2, 3],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_6_2.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_6_2.csv"
         }
       ]
     },
@@ -203,12 +203,12 @@
         {
           "path" : [9, 10],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_7_1.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_7_1.csv"
         },
         {
           "path" : [1, 2],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_7_2.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_7_2.csv"
         }
       ]
     },
@@ -221,17 +221,17 @@
         {
           "path" : [8, 9, 10],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_8_1.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_8_1.csv"
         },
         {
           "path" : [1, 2, 3, 4],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_8_2.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_8_2.csv"
         },
         {
           "path" : [7, 8],
           "epsilon" : 0.01,
-          "statistic" : "poisson_2_3_3/poisson_8_3.csv"
+          "statistic" : "poisson/poisson_2_3_3/poisson_8_3.csv"
         }
       ]
     }

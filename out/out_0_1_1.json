@@ -1,0 +1,252 @@
+{
+	"slices" : [
+		{
+ 			"sls_number" : 1,
+			"packet_size" : 0.008,
+			"bandwidth" : 31,
+			"qos_delay" : 0.7,
+			"estimate_delay" : 2.22942e-08,
+			"flows" : [
+				{
+					"alpha" : 0.15,
+					"beta" : 2.0,
+					"path" : [1, 2, 3, 4, 5]
+				},
+				{
+					"alpha" : 0.14,
+					"beta" : 2.1,
+					"path" : [2, 3, 4, 5, 6, 7, 8]
+				},
+				{
+					"alpha" : 0.15,
+					"beta" : 1.8,
+					"path" : [7, 8, 9, 10]
+				}
+			]
+		},
+		{
+ 			"sls_number" : 2,
+			"packet_size" : 0.01,
+			"bandwidth" : 48,
+			"qos_delay" : 3.8,
+			"estimate_delay" : 0.00089918,
+			"flows" : [
+				{
+					"alpha" : 0.16,
+					"beta" : 1.5,
+					"path" : [3, 4, 5, 6, 7, 8, 9]
+				},
+				{
+					"alpha" : 0.2,
+					"beta" : 0.7,
+					"path" : [5, 6, 7, 8, 9, 10]
+				},
+				{
+					"alpha" : 0.15,
+					"beta" : 0.7,
+					"path" : [7, 8, 9, 10]
+				},
+				{
+					"alpha" : 0.11,
+					"beta" : 2.0,
+					"path" : [1, 2, 3]
+				}
+			]
+		}
+	],
+ 	"topology" : { 
+ 		"switches" : [
+			{
+ 				"number" : 1,
+				"bandwidth" : 80,
+				"queues" : [
+					{
+ 						"priority" : 1,
+						"queue_number" : 1,
+						"slice" : 1,
+						"weight" : 1.0
+					},
+					{
+ 						"priority" : 2,
+						"queue_number" : 2,
+						"slice" : 2,
+						"weight" : 1.0
+					}
+				]
+ 			},
+			{
+ 				"number" : 2,
+				"bandwidth" : 90,
+				"queues" : [
+					{
+ 						"priority" : 1,
+						"queue_number" : 1,
+						"slice" : 1,
+						"weight" : 1.0
+					},
+					{
+ 						"priority" : 2,
+						"queue_number" : 2,
+						"slice" : 2,
+						"weight" : 1.0
+					}
+				]
+ 			},
+			{
+ 				"number" : 3,
+				"bandwidth" : 80,
+				"queues" : [
+					{
+ 						"priority" : 1,
+						"queue_number" : 1,
+						"slice" : 1,
+						"weight" : 1.0
+					},
+					{
+ 						"priority" : 2,
+						"queue_number" : 2,
+						"slice" : 2,
+						"weight" : 1.0
+					}
+				]
+ 			},
+			{
+ 				"number" : 4,
+				"bandwidth" : 90,
+				"queues" : [
+					{
+ 						"priority" : 1,
+						"queue_number" : 1,
+						"slice" : 1,
+						"weight" : 1.0
+					},
+					{
+ 						"priority" : 2,
+						"queue_number" : 2,
+						"slice" : 2,
+						"weight" : 1.0
+					}
+				]
+ 			},
+			{
+ 				"number" : 5,
+				"bandwidth" : 100,
+				"queues" : [
+					{
+ 						"priority" : 1,
+						"queue_number" : 1,
+						"slice" : 1,
+						"weight" : 1.0
+					},
+					{
+ 						"priority" : 2,
+						"queue_number" : 2,
+						"slice" : 2,
+						"weight" : 1.0
+					}
+				]
+ 			},
+			{
+ 				"number" : 6,
+				"bandwidth" : 110,
+				"queues" : [
+					{
+ 						"priority" : 1,
+						"queue_number" : 1,
+						"slice" : 1,
+						"weight" : 1.0
+					},
+					{
+ 						"priority" : 2,
+						"queue_number" : 2,
+						"slice" : 2,
+						"weight" : 1.0
+					}
+				]
+ 			},
+			{
+ 				"number" : 7,
+				"bandwidth" : 90,
+				"queues" : [
+					{
+ 						"priority" : 1,
+						"queue_number" : 1,
+						"slice" : 1,
+						"weight" : 1.0
+					},
+					{
+ 						"priority" : 2,
+						"queue_number" : 2,
+						"slice" : 2,
+						"weight" : 1.0
+					}
+				]
+ 			},
+			{
+ 				"number" : 8,
+				"bandwidth" : 100,
+				"queues" : [
+					{
+ 						"priority" : 1,
+						"queue_number" : 1,
+						"slice" : 1,
+						"weight" : 1.0
+					},
+					{
+ 						"priority" : 2,
+						"queue_number" : 2,
+						"slice" : 2,
+						"weight" : 1.0
+					}
+				]
+ 			},
+			{
+ 				"number" : 9,
+				"bandwidth" : 80,
+				"queues" : [
+					{
+ 						"priority" : 1,
+						"queue_number" : 1,
+						"slice" : 1,
+						"weight" : 1.0
+					},
+					{
+ 						"priority" : 2,
+						"queue_number" : 2,
+						"slice" : 2,
+						"weight" : 1.0
+					}
+				]
+ 			},
+			{
+ 				"number" : 10,
+				"bandwidth" : 80,
+				"queues" : [
+					{
+ 						"priority" : 1,
+						"queue_number" : 1,
+						"slice" : 1,
+						"weight" : 1.0
+					},
+					{
+ 						"priority" : 2,
+						"queue_number" : 2,
+						"slice" : 2,
+						"weight" : 1.0
+					}
+				]
+ 			}
+		],
+ 		 "links" : [
+			[1, 2],
+			[2, 3],
+			[3, 4],
+			[4, 5],
+			[5, 6],
+			[6, 7],
+			[7, 8],
+			[8, 9],
+			[9, 10]
+		] 
+ 	}
+ }

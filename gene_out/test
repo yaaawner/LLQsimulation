@@ -1,0 +1,10 @@
+delay on slice 1 : 0.0607642055188542
+required qos delay 1 : 0.7
+estimate delay : 0.07996236
+simulation time : 161.26637649536133
+-------------------------------------------------
+delay on slice 2 : 0.060880581301926806
+required qos delay 2 : 3.8
+estimate delay : 0.20394684
+simulation time : 161.26637649536133
+-------------------------------------------------

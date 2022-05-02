@@ -3,6 +3,8 @@ import json
 import enum
 import random
 import time
+#from GG1delay.generator import generate_general
+from GG1delay.generator import Flow
 
 T = 60
 transmit = 0.01
@@ -29,13 +31,6 @@ class Packet:
         self.begin_time = start_t   # время поступления пакета в сеть
         self.virtual_end_time = 0   # виртуальное время окончания отправки пакета на коммутаторе
         self.flow = flow_           # поток, которому принадлежит пакет
-
-
-class Flow:
-    def __init__(self, number_, lambda_, path_):
-        self.number = number_        # номер потока
-        self.p_lambda = lambda_      # интенсивность почтупления пакетов (параметр Пуассона)
-        self.path = path_            # список коммутатор, через которые проходит поток
 
 
 class Slice:
@@ -225,7 +220,7 @@ def parse_config(argv, slices, topology):
                               sls['qos_delay'], sls['estimate_delay'])
             i = 1
             for fl in sls['flows']:
-                flow = Flow(i, fl['lambda'], fl['path'])
+                flow = Flow(i, fl['alpha'], fl['beta'], fl['path'])
                 one_slice.flows_list.append(flow)
                 i += 1
             slices[one_slice.number] = one_slice
@@ -259,7 +254,7 @@ def parse_config(argv, slices, topology):
 
 
 # генерация входящего потока в виде Пуассона
-def generate(slices, event_time):
+def generate_poisson(slices, event_time):
     print("Start generate")
     for key in slices.keys():
         sls = slices[key]
@@ -276,6 +271,26 @@ def generate(slices, event_time):
                 event_time.add_event(Event(State.ARRIVAL, t, arrival_packet, flow.path[0]))
                 # генерируем экспоненциальное значение временного интервала между событиями
                 t += random.expovariate(flow.p_lambda)
+    print("Finish generate")
+
+
+def generate_general(slices, event_time):
+    print("Start generate")
+    for key in slices.keys():
+        sls = slices[key]
+        packet_count = 1
+        for flow in sls.flows_list:
+            t = random.weibullvariate(flow.alpha, flow.beta)
+            while t < T:
+                # добавляем шейпинг
+                if (packet_count * sls.packet_size) / t > sls.bandwidth:
+                    t += ((packet_count * sls.packet_size / sls.bandwidth) - t)
+                # print("sls_number", sls.number, "flow =", flow.path[0], "time = ", t)
+                arrival_packet = Packet(sls.packet_size, sls.number, t, flow)
+                # добавляем событие в общий список событий
+                event_time.add_event(Event(State.ARRIVAL, t, arrival_packet, flow.path[0]))
+                # генерируем экспоненциальное значение временного интервала между событиями
+                t += random.weibullvariate(flow.alpha, flow.beta)
     print("Finish generate")
 
 
@@ -366,7 +381,13 @@ def main(argv):
 
     # генерируем время прихода пакетов
     event_time = Time()
-    generate(slices, event_time)
+
+    # poisson
+    #generate_poisson(slices, event_time)
+
+    # general
+    generate_general(slices, event_time)
+
 
     # выполняем симуляцию отправки пакетов
     simulate(event_time, topology, stat)

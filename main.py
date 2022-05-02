@@ -130,7 +130,7 @@ def parse_config(input_file, slices, topology):
                                 sls_data["qos_delay"], sls_data["packet_size"])
             i = 1
             for fl in sls_data["flows"]:
-                flow = objects.Flow(i, fl["epsilon"], fl["path"])
+                flow = objects.Flow(i, fl["epsilon"], fl["alpha"], fl["beta"], fl["path"])
                 if "statistic" in fl:
                     with open(fl["statistic"], 'r') as f:
                         reader = csv.reader(f)
@@ -139,8 +139,8 @@ def parse_config(input_file, slices, topology):
                     flow.define_distribution(stat_list, rate)
                     if flow.rho_a == 0 and flow.b_a == 0:
                         print("Reject slice installation")
-                        correct = False
-                        break
+                    #    correct = False
+                    #    break
                 else:
                     flow.rho_a = fl["rho_a"]
                     flow.b_a = fl["b_a"]
@@ -169,7 +169,8 @@ def write_result(file_name, slices, topology):
         flow_count = len(slices[sls].flows_list)
         for flow in slices[sls].flows_list:
             file.write("\t\t\t\t{\n")
-            file.write("\t\t\t\t\t\"lambda\" : " + str(flow.rho_a) + ",\n")
+            file.write("\t\t\t\t\t\"alpha\" : " + str(flow.alpha) + ",\n")
+            file.write("\t\t\t\t\t\"beta\" : " + str(flow.beta) + ",\n")
             file.write("\t\t\t\t\t\"path\" : [")
             path_len = len(flow.path)
             for elem in flow.path:
