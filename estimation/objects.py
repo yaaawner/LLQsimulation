@@ -84,8 +84,6 @@ class Queue:
         self.b_s = 0.0              # задержка для кривой обслуживания
         self.slice_lambda = self.slice.rho_a
 
-        #self.slice_mu = 0.0
-
         #self.service_var = self.slice.packet_size_std ** 2
 
         # arrival
@@ -96,6 +94,8 @@ class Queue:
         self.service_mean = self.slice.packet_size
         self.service_var = self.slice.packet_size_std ** 2
         self.service_scv = self.service_var / self.service_mean ** 2
+
+        self.slice_mu = 1 / self.service_mean
 
 
 class Priority:

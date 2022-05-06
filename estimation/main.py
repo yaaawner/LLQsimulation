@@ -3,7 +3,7 @@ import json
 import math
 import sys
 
-import objects, algorithm, mytopology, MG1delay
+import objects, algorithm, mytopology, MG1delay, GG1delay
 from objects import MG1_FLAG
 
 DELTA_DELAY = 0.8
@@ -128,6 +128,14 @@ def create_start_service_curve(topology):
         for sw in topology.switches.keys():
             for pr in topology.switches[sw].priority_list:
                 MG1delay.calculate_queue_delay(pr)
+    else:
+        for sw in topology.switches.keys():
+            GG1delay.calculate_priority_delay(topology, sw)
+
+        # вычисляем задержку для каждой очереди
+        for sw in topology.switches.keys():
+            for pr in topology.switches[sw].priority_list:
+                GG1delay.calculate_queue_delay(pr)
     # print_queue_organization(topology)
 
 

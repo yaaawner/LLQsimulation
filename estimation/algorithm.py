@@ -1,5 +1,5 @@
 import slicedelay
-import MG1delay
+import MG1delay, GG1delay
 from objects import MG1_FLAG
 
 
@@ -43,6 +43,12 @@ def increase_priority(topology, sls_number, sw_number):
                     # выполняем пересчет задержки для очередей внутри приоритетов
                     MG1delay.calculate_queue_delay(curr_priority)
                     MG1delay.calculate_queue_delay(high_priority)
+                else:
+                    # выполняем пересчет задержки приоритетов
+                    GG1delay.calculate_priority_delay(topology, sw_number)
+                    # выполняем пересчет задержки для очередей внутри приоритетов
+                    GG1delay.calculate_queue_delay(curr_priority)
+                    GG1delay.calculate_queue_delay(high_priority)
                 # else gg1
     print('increase_priority')
 
@@ -87,6 +93,12 @@ def decrease_priority(topology, sls_number, sw_number):
                     # выполняем пересчет задержки для очередей внутри приоритетов
                     MG1delay.calculate_queue_delay(curr_priority)
                     MG1delay.calculate_queue_delay(low_priority)
+                else:
+                    # выполняем пересчет задержки приоритетов
+                    GG1delay.calculate_priority_delay(topology, sw_number)
+                    # выполняем пересчет задержки для очередей внутри приоритетов
+                    GG1delay.calculate_queue_delay(curr_priority)
+                    GG1delay.calculate_queue_delay(low_priority)
                 # else gg1
     print('decrease_priority')
 
