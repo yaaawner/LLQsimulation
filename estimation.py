@@ -132,6 +132,83 @@ def create_start_service_curve(topology):
     # print_queue_organization(topology)
 
 
+# записываем результаты работы в выходной файл
+def write_result(file_name, slices, topology):
+    output_file = "out/out" + file_name + ".json"
+    file = open(output_file, "w")
+    file.write('{\n')
+    file.write("\t\"slices\" : [\n")
+    # записываем информацию о слайсах
+    slice_numbers = len(slices.keys())
+    for sls in slices.keys():
+        file.write("\t\t{\n \t\t\t\"sls_number\" : " + str(sls) + ",\n")
+        file.write("\t\t\t\"packet_size\" : " + str(slices[sls].packet_size) + ",\n")
+        file.write("\t\t\t\"bandwidth\" : " + str(slices[sls].qos_throughput) + ",\n")
+        file.write("\t\t\t\"qos_delay\" : " + str(slices[sls].qos_delay) + ",\n")
+        file.write("\t\t\t\"estimate_delay\" : " + str(slices[sls].estimate_delay) + ",\n")
+        file.write("\t\t\t\"flow\" : \n")
+        # записываем информацию о потоках
+        flow_count = len(slices[sls].flows_list)
+        for flow in slices[sls].flows_list:
+            file.write("\t\t\t\t{\n")
+            file.write("\t\t\t\t\t\"alpha\" : " + str(flow.alpha) + ",\n")
+            file.write("\t\t\t\t\t\"beta\" : " + str(flow.beta) + ",\n")
+            file.write("\t\t\t\t\t\"path\" : [")
+            path_len = len(flow.path)
+            for elem in flow.path:
+                file.write(str(elem))
+                path_len -= 1
+                if path_len != 0:
+                    file.write(", ")
+            file.write("]\n\t\t\t\t}")
+            flow_count -= 1
+            if flow_count != 0:
+                file.write(",\n")
+            else:
+                file.write("\n")
+        file.write("\t\t\t\n\t\t}")
+        slice_numbers -= 1
+        if slice_numbers != 0:
+            file.write(",\n")
+    file.write("\n\t],\n \t\"topology\" : { \n \t\t\"switches\" : [\n")
+    # записываем информацию о коммутаторах
+    sw_numbers = len(topology.switches.keys())
+    for sw in topology.switches.keys():
+        file.write("\t\t\t{\n \t\t\t\t\"number\" : " + str(sw) + ",\n")
+        file.write("\t\t\t\t\"bandwidth\" : " + str(topology.switches[sw].physical_speed) + ",\n")
+        file.write("\t\t\t\t\"queues\" : [\n")
+        # записываем информацию о каждой очереди
+        queues_count = 0
+        pr_count = len(topology.switches[sw].priority_list)
+        for pr in topology.switches[sw].priority_list:
+            pr_count -= 1
+            queues_count += len(pr.queue_list)
+            for queue in pr.queue_list:
+                file.write("\t\t\t\t\t{\n \t\t\t\t\t\t\"priority\" : " + str(pr.priority) + ",\n")
+                file.write("\t\t\t\t\t\t\"queue_number\" : " + str(queue.number) + ",\n")
+                file.write("\t\t\t\t\t\t\"slice\" : " + str(queue.slice.id) + ",\n")
+                file.write("\t\t\t\t\t\t\"weight\" : " + str(queue.weight) + "\n")
+                file.write("\t\t\t\t\t}")
+                queues_count -= 1
+                if pr_count != 0 or queues_count != 0:
+                    file.write(",\n")
+                else:
+                    file.write("\n")
+        file.write("\t\t\t\t]\n \t\t\t}")
+        sw_numbers -= 1
+        if sw_numbers != 0:
+            file.write(",\n")
+    file.write("\n\t\t],\n \t\t \"links\" : [\n")
+    # записываем информацию о каналах
+    lk_count = 0
+    for lk in topology.links:
+        file.write("\t\t\t[" + str(lk[0]) + ", " + str(lk[1]) + "]")
+        lk_count += 1
+        if lk_count != len(topology.links):
+            file.write(",\n")
+    file.write("\n\t\t] \n \t}\n }\n")
+
+
 def main(argv):
     slices = dict()
     topology = mytopology.Topology()
@@ -157,6 +234,8 @@ def main(argv):
     # подбор корректных параметров для слайсов
     algorithm.modify_queue_parameters(slices, slices_order, topology, file_name)
 
+    # записываем результаты работы в выходной файл
+    write_result(file_name, slices, topology)
 
 
 if __name__ == "__main__":
