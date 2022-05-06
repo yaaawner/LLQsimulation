@@ -1,6 +1,6 @@
-__pycache__/
-LP/
-.idea/
-gene_out/
-out/
-old/
+/__pycache__/
+/.idea/
+/gene_out/
+/out/
+/old/
+/LP/
