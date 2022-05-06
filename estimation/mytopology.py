@@ -1,4 +1,4 @@
-from estimation.mytime import Tree, MyTime
+from mytime import Tree, MyTime
 import itertools
 
 

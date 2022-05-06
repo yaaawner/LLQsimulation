@@ -29,13 +29,17 @@ class Packet:
 
 
 class Slice:
-    def __init__(self, number_, packet_size_, bandwidth_, delay_, estimate_):
+    def __init__(self, number_, packet_size_, bandwidth_, delay_, estimate_, alpha_, beta_, path_):
         self.number = number_            # номер слайса
         self.packet_size = packet_size_  # размер поступающих пакетов
         self.bandwidth = bandwidth_      # пропускная способность слайса
         self.qos_delay = delay_          # требуемая задержка
         self.estimate_delay = estimate_  # математическая оценка задержки
         # self.flows_list = list()         # список маршрутов
+
+        self.alpha = alpha_  # интенсивность почтупления пакетов (параметр Пуассона)
+        self.beta = beta_
+        self.path = path_  # список коммутатор, через которые проходит поток
 
 
 class Queue:

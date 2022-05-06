@@ -1,4 +1,4 @@
-from estimation import slicedelay
+import slicedelay
 
 
 # выбираем коммутатор, на котором будет изменяться приоритет
