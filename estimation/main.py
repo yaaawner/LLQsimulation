@@ -3,10 +3,7 @@ import json
 import math
 import sys
 
-import mytopology
-import objects
-import slicedelay
-import algorithm
+from estimation import objects, algorithm, slicedelay, mytopology
 
 DELTA_DELAY = 0.8
 
