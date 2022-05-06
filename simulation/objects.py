@@ -22,7 +22,7 @@ class Event:
 class Packet:
     def __init__(self, size_p, sls, start_t, slice_):
         self.size = size_p          # размер пакета
-        self.slice = sls            # номер слайса, которому принадлежит пакет
+        self.slice_number = sls            # номер слайса, которому принадлежит пакет
         self.begin_time = start_t   # время поступления пакета в сеть
         self.virtual_end_time = 0   # виртуальное время окончания отправки пакета на коммутаторе
         self.slice = slice_           # поток, которому принадлежит пакет
@@ -106,7 +106,7 @@ class Switch:
         for queue in self.queues_send:
             if len(queue) != 0:
                 packet = queue.pop(0)
-                self.queues_info[self.slice_distribution[packet.slice]].pop()
+                self.queues_info[self.slice_distribution[packet.slice_number]].pop()
                 return packet
         return 0
 
