@@ -60,54 +60,25 @@
       "qos_delay" : 0.7,
       "qos_throughput" : 31,
       "packet_size" : 0.008,
-      "flows" : [
-        {
+      "flow" : {
           "path" : [1, 2, 3, 4, 5],
           "epsilon" : 0.01,
           "alpha": 0.15,
           "beta": 2.0,
           "statistic": "weibull/weibull_0_1_1/weibull_1_1.csv"
-        },
-        {
-          "path" : [2, 3, 4, 5, 6, 7, 8],
-          "epsilon" : 0.01,
-          "alpha": 0.14,
-          "beta": 2.1,
-          "statistic": "weibull/weibull_0_1_1/weibull_1_2.csv"        },
-        {
-          "path" : [7, 8, 9, 10],
-          "epsilon" : 0.01,
-          "alpha": 0.15, "beta": 1.8, "statistic": "weibull/weibull_0_1_1/weibull_1_3.csv"
         }
-      ]
     },
     {
       "sls_number" : 2,
       "qos_delay" : 3.8,
       "qos_throughput" : 48,
       "packet_size" : 0.01,
-      "flows" : [
+      "flow" :
         {
           "path" : [3, 4, 5, 6, 7, 8, 9],
           "epsilon" : 0.01,
           "alpha": 0.16, "beta": 1.5, "statistic": "weibull/weibull_0_1_1/weibull_2_1.csv"
-        },
-        {
-          "path" : [5, 6, 7, 8, 9, 10],
-          "epsilon" : 0.01,
-          "alpha": 0.2, "beta": 0.7, "statistic": "weibull/weibull_0_1_1/weibull_2_2.csv"
-        },
-        {
-          "path" : [7, 8, 9, 10],
-          "epsilon" : 0.01,
-          "alpha": 0.15, "beta": 0.7, "statistic": "weibull/weibull_0_1_1/weibull_2_3.csv"
-        },
-        {
-          "path" : [1, 2, 3],
-          "epsilon" : 0.01,
-          "alpha": 0.11, "beta": 2.0, "statistic": "weibull/weibull_0_1_1/weibull_2_4.csv"
         }
-      ]
     }
   ]
 }
