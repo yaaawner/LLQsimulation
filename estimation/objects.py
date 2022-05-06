@@ -2,6 +2,9 @@ import math
 import scipy.stats as sps
 
 
+MG1_FLAG = True
+
+
 class Flow:
     def __init__(self, number_, eps_, alpha_, beta_, path_):
         self.number = number_  # номер потока

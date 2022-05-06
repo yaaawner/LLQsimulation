@@ -3,7 +3,8 @@ import json
 import math
 import sys
 
-import objects, algorithm, slicedelay, mytopology
+import objects, algorithm, mytopology, MG1delay
+from objects import MG1_FLAG
 
 DELTA_DELAY = 0.8
 
@@ -119,13 +120,14 @@ def create_queue_start_organization(slices, slices_order, topology):
 # формируем кривую обслуживания на каждом коммутаторе для начальных параметров
 def create_start_service_curve(topology):
     # на каждом коммутаторе вычисляем задержку приоритета
-    for sw in topology.switches.keys():
-        slicedelay.calculate_priority_delay_mg1(topology, sw)
+    if MG1_FLAG:
+        for sw in topology.switches.keys():
+            MG1delay.calculate_priority_delay(topology, sw)
 
-    # вычисляем задержку для каждой очереди
-    for sw in topology.switches.keys():
-        for pr in topology.switches[sw].priority_list:
-            slicedelay.calculate_queue_delay_mg1(pr)
+        # вычисляем задержку для каждой очереди
+        for sw in topology.switches.keys():
+            for pr in topology.switches[sw].priority_list:
+                MG1delay.calculate_queue_delay(pr)
     # print_queue_organization(topology)
 
 

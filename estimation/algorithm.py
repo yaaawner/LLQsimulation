@@ -1,4 +1,6 @@
 import slicedelay
+import MG1delay
+from objects import MG1_FLAG
 
 
 # выбираем коммутатор, на котором будет изменяться приоритет
@@ -34,11 +36,14 @@ def increase_priority(topology, sls_number, sw_number):
                 # выполняем пересчет параметров приоритетов
                 high_priority.recalculation()
                 curr_priority.recalculation()
-                # выполняем пересчет задержки приоритетов
-                slicedelay.calculate_priority_delay_mg1(topology, sw_number)
-                # выполняем пересчет задержки для очередей внутри приоритетов
-                slicedelay.calculate_queue_delay_mg1(curr_priority)
-                slicedelay.calculate_queue_delay_mg1(high_priority)
+
+                if MG1_FLAG:
+                    # выполняем пересчет задержки приоритетов
+                    MG1delay.calculate_priority_delay(topology, sw_number)
+                    # выполняем пересчет задержки для очередей внутри приоритетов
+                    MG1delay.calculate_queue_delay(curr_priority)
+                    MG1delay.calculate_queue_delay(high_priority)
+                # else gg1
     print('increase_priority')
 
 
@@ -76,11 +81,13 @@ def decrease_priority(topology, sls_number, sw_number):
                 # выполняем пересчет параметров приоритетов
                 low_priority.recalculation()
                 curr_priority.recalculation()
-                # выполняем пересчет задержки приоритетов
-                slicedelay.calculate_priority_delay_mg1(topology, sw_number)
-                # выполняем пересчет задержки для очередей внутри приоритетов
-                slicedelay.calculate_queue_delay_mg1(curr_priority)
-                slicedelay.calculate_queue_delay_mg1(low_priority)
+                if MG1_FLAG:
+                    # выполняем пересчет задержки приоритетов
+                    MG1delay.calculate_priority_delay(topology, sw_number)
+                    # выполняем пересчет задержки для очередей внутри приоритетов
+                    MG1delay.calculate_queue_delay(curr_priority)
+                    MG1delay.calculate_queue_delay(low_priority)
+                # else gg1
     print('decrease_priority')
 
 
