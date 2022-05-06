@@ -1,4 +1,4 @@
-import slicedelay
+from old import slicedelay
 
 
 # выбираем коммутатор, на котором будет изменяться приоритет

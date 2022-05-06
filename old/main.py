@@ -2,11 +2,9 @@ import sys
 import json
 import csv
 import math
+import scipy.stats as sps
 
-import objects
-import algorithm
-import mytopology
-import slicedelay
+from old import objects, algorithm, slicedelay, mytopology
 
 DELTA_DELAY = 0.8
 
@@ -128,9 +126,14 @@ def parse_config(input_file, slices, topology):
             correct = True
             sls = objects.Slice(sls_data["sls_number"], sls_data["qos_throughput"],
                                 sls_data["qos_delay"], sls_data["packet_size"])
+            sls.packet_size_std = 0.001
             i = 1
             for fl in sls_data["flows"]:
                 flow = objects.Flow(i, fl["epsilon"], fl["alpha"], fl["beta"], fl["path"])
+                flow.arrival_mean = sps.weibull_min.mean(fl["beta"], loc=0, scale=fl["alpha"])
+                flow.arrival_std = sps.weibull_min.std(fl["beta"], loc=0, scale=fl["alpha"])
+                flow.arrival_scv = (flow.arrival_std / flow.arrival_mean) ** 2
+                print(flow.arrival_mean, flow.arrival_std)
                 if "statistic" in fl:
                     with open(fl["statistic"], 'r') as f:
                         reader = csv.reader(f)
