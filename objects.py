@@ -2,6 +2,17 @@ import math
 import scipy.stats as sps
 
 
+class Flow:
+    def __init__(self, number_, eps_, alpha_, beta_, path_):
+        self.number = number_  # номер потока
+        self.rho_a = 0.0  # скорость поступления трафика (для кривой нагрузки)
+        self.b_a = 0.0  # всплеск трафика (для кривой нагрузки)
+        self.epsilon = eps_  # вероятность ошибки оценки кривой нагрузки
+        self.path = path_  # список коммутатор, через которые проходит поток
+        self.alpha = alpha_
+        self.beta = beta_
+
+
 class Slice:
     def __init__(self, id_, throughput_, delay_, packet_, eps_, alpha_, beta_, path_):
         self.id = id_                       # номер слайса
@@ -15,6 +26,7 @@ class Slice:
         self.leaves = []                    # список всех вершин времен
         self.tree = 0                       # дерево связности времен
         self.route_time_constraints = []    # список временных неравенст для потока
+        self.flows_list = [Flow(1, eps_, alpha_, beta_, path_)]
 
         self.rho_a = 0.0        # скорость поступления трафика (для кривой нагрузки)
         self.b_a = 0.0          # всплеск трафика (для кривой нагрузки)

@@ -6,6 +6,7 @@ import sys
 import mytopology
 import objects
 import slicedelay
+import algorithm
 
 DELTA_DELAY = 0.8
 
@@ -153,6 +154,8 @@ def main(argv):
     # формируем кривую обслуживания на каждом коммутаторе для начальных параметров
     create_start_service_curve(topology)
 
+    # подбор корректных параметров для слайсов
+    algorithm.modify_queue_parameters(slices, slices_order, topology, file_name)
 
 
 

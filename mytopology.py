@@ -355,3 +355,4 @@ class Topology:
             pr.throughput -= sls.qos_throughput
             pr.recalculation()
             self.switches[sw].slice_priorities.pop(sls.id)
+
