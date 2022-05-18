@@ -1,0 +1,60 @@
+delay on slice 1 : 0.05042817483841322
+required qos delay 6 : 0.1
+estimate delay GG1 : 0.05240818
+estimate delay MG1 : 0.0012024
+simulation time : 92.3253185749054
+-------------------------------------------------
+delay on slice 2 : 0.02665355494047361
+required qos delay 10 : 0.3
+estimate delay GG1 : 0.01788864
+estimate delay MG1 : 0.00118008
+simulation time : 92.3253185749054
+-------------------------------------------------
+delay on slice 3 : 0.05031830043402152
+required qos delay 5 : 0.5
+estimate delay GG1 : 0.17561603
+estimate delay MG1 : 0.00878327
+simulation time : 92.3253185749054
+-------------------------------------------------
+delay on slice 4 : 0.11297233736897283
+required qos delay 3 : 0.5
+estimate delay GG1 : 0.26548513
+estimate delay MG1 : 0.00184113
+simulation time : 92.3253185749054
+-------------------------------------------------
+delay on slice 5 : 0.1104895677347173
+required qos delay 1 : 0.7
+estimate delay GG1 : 0.31856816
+estimate delay MG1 : 0.01671249
+simulation time : 92.3253185749054
+-------------------------------------------------
+delay on slice 6 : 0.039594246248888965
+required qos delay 8 : 1.0
+estimate delay GG1 : 0.34170006
+estimate delay MG1 : 0.03462829
+simulation time : 92.3253185749054
+-------------------------------------------------
+delay on slice 7 : 0.11133669047389816
+required qos delay 2 : 1.0
+estimate delay GG1 : 0.37872194
+estimate delay MG1 : 0.0088635
+simulation time : 92.3253185749054
+-------------------------------------------------
+delay on slice 8 : 0.10949578015478778
+required qos delay 4 : 1.0
+estimate delay GG1 : 0.13613817
+estimate delay MG1 : 0.01632743
+simulation time : 92.3253185749054
+-------------------------------------------------
+delay on slice 9 : 0.061007806423134525
+required qos delay 7 : 2.0
+estimate delay GG1 : 0.24090286
+estimate delay MG1 : 0.01699828
+simulation time : 92.3253185749054
+-------------------------------------------------
+delay on slice 10 : 0.11164585339452948
+required qos delay 9 : 2.0
+estimate delay GG1 : 0.37144329
+estimate delay MG1 : 0.00176402
+simulation time : 92.3253185749054
+-------------------------------------------------

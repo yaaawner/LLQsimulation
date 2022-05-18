@@ -27,8 +27,8 @@ def parse_config(input_file, slices, topology):
             correct = True
             flow = sls_data["flow"]
             sls = objects.Slice(sls_data["sls_number"], sls_data["qos_throughput"], sls_data["qos_delay"],
-                                sls_data["packet_size"], flow["epsilon"], flow["alpha"], flow["beta"], flow["path"])
-            sls.packet_size_std = 0.001
+                                sls_data["packet"], flow["epsilon"], flow["alpha"], flow["beta"], flow["path"])
+            #sls.packet_size_std = 0.001
 
             if "statistic" in flow:
                 with open(flow["statistic"], 'r') as f:

@@ -2,9 +2,9 @@ def calculate_priority_delay(topology, sw):
     # вычисляем числитель
     numerator = 0
     for pr in topology.switches[sw].priority_list:
-        print(pr.priority_lambda)
-        for q in pr.queue_list:
-            print(q.slice.packet_size)
+        #print(pr.priority_lambda)
+        #for q in pr.queue_list:
+            #print(q.slice.packet_size)
         numerator += pr.priority_lambda * (pr.queue_list[0].slice.packet_size ** 2) / \
                      (topology.switches[sw].physical_speed ** 2)
 
@@ -21,7 +21,7 @@ def calculate_priority_delay(topology, sw):
             # if i != 0:
             #     print('sigma_prev =', sigma_prev, 'pr.priority_lambda =', pr.priority_lambda, 'throughput =', topology.switches[sw].physical_speed)
         denominator = 2 * (1 - sigma_prev) * (1 - pr.sigma_priority)
-        pr.delay = numerator / denominator
+        pr.delay = (numerator / denominator)
 
 
 def calculate_queue_delay(pr):
@@ -46,4 +46,4 @@ def calculate_queue_delay(pr):
             rho_j = lambda_j * l_j / r_j
             numerator += (r_j / r_k + rho_j * l_j) / pr.throughput
         # итоговая задержка для
-        pr.queue_list[k].b_s = pr.delay + numerator / denominator
+        pr.queue_list[k].b_s = pr.delay + (numerator / denominator)

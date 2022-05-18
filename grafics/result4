@@ -1,0 +1,48 @@
+delay on slice 2 : 0.08842336329555422
+required qos delay 2 : 3.8
+estimate delay GG1 : 0.48701226
+estimate delay MG1 : 0.00013653
+simulation time : 22.26026225090027
+-------------------------------------------------
+delay on slice 2 : 0.09519398767550946
+required qos delay 2 : 3.8
+estimate delay GG1 : 0.09139811
+estimate delay MG1 : 0.00047478
+simulation time : 114.29049634933472
+-------------------------------------------------
+delay on slice 2 : 0.08600443388011314
+required qos delay 2 : 3.8
+estimate delay GG1 : 0.06969154
+estimate delay MG1 : 0.00099549
+simulation time : 401.03644132614136
+-------------------------------------------------
+delay on slice 2 : 0.08088323962316224
+required qos delay 2 : 3.8
+estimate delay GG1 : 0.07773288
+estimate delay MG1 : 0.0017428
+simulation time : 674.3916249275208
+-------------------------------------------------
+delay on slice 2 : 0.08679997745573331
+required qos delay 2 : 3.8
+estimate delay GG1 : 0.08765888
+estimate delay MG1 : 0.00269113
+simulation time : 977.9164266586304
+-------------------------------------------------
+delay on slice 2 : 0.07674009544982674
+required qos delay 2 : 3.8
+estimate delay GG1 : 0.09614835
+estimate delay MG1 : 0.00386679
+simulation time : 1052.4243931770325
+-------------------------------------------------
+delay on slice 2 : 0.07888108981157416
+required qos delay 2 : 3.8
+estimate delay GG1 : 0.1060391
+estimate delay MG1 : 0.00959384
+simulation time : 1302.4025337696075
+-------------------------------------------------
+delay on slice 2 : 0.0784641207087784
+required qos delay 2 : 3.8
+estimate delay GG1 : 0.09851712
+estimate delay MG1 : 0.00445226
+simulation time : 1542.6269969940186
+-------------------------------------------------

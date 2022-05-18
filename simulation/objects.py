@@ -114,9 +114,12 @@ class Switch:
     def calculate_virtual_end_time(self, queue, packet, priority, in_time):
         weight = 0
         tau = in_time - self.virt_time_param[priority].phys_time
+        #print(self.virt_time_param[priority].B_j)
         for number in self.virt_time_param[priority].B_j:
-            # print("number :", number, "queue_info :", self.queues_info)
-            weight += self.queues_info[number].weight
+            #print("number :", number, "queue_info :", self.queues_info)
+            #print(self.queues_info.keys())
+            if number in self.queues_info.keys():
+                weight += self.queues_info[number].weight
         if weight == 0:
             weight = 1
         virtual_time = self.virt_time_param[priority].prev_virt_time + tau / weight
@@ -138,7 +141,8 @@ class Switch:
             weight = 0
             for number in self.virt_time_param[priority].B_j:
                 # print("number :", number, "queue_info :", self.queues_info)
-                weight += self.queues_info[number].weight
+                if number in self.queues_info.keys():
+                    weight += self.queues_info[number].weight
             if weight == 0:
                 weight = 1
             self.virt_time_param[priority].prev_virt_time += \

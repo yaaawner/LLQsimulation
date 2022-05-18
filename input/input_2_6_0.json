@@ -1,0 +1,131 @@
+{
+  "topology" : {
+    "switches" : [
+      {
+        "number" : 1,
+        "throughput" : 200
+      },
+      {
+        "number" : 2,
+        "throughput" : 200
+      },
+      {
+        "number" : 3,
+        "throughput" : 200
+      },
+      {
+        "number" : 4,
+        "throughput" : 200
+      },
+      {
+        "number" : 5,
+        "throughput" : 200
+      },
+      {
+        "number" : 6,
+        "throughput" : 150
+      },
+      {
+        "number" : 7,
+        "throughput" : 150
+      },
+      {
+        "number" : 8,
+        "throughput" : 150
+      },
+      {
+        "number" : 9,
+        "throughput" : 150
+      },
+      {
+        "number" : 10,
+        "throughput" : 150
+      }
+    ],
+    "links" : [
+      [1, 2],
+      [2, 3],
+      [3, 4],
+      [4, 5],
+      [5, 6],
+      [6, 7],
+      [7, 8],
+      [8, 9],
+      [9, 10]
+    ]
+  },
+  "slices" : [
+    {
+      "sls_number" : 1,
+      "qos_delay" : 3.8,
+      "qos_throughput" : 20,
+      "packet" : {"alpha": 0.3, "beta": 0.7},
+      "flow" : {
+          "path" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          "epsilon" : 0.01,
+          "alpha": 0.15, "beta": 0.5,
+          "statistic": "weibull/weibull_2_6_0/weibull_1.csv"
+        }
+    },
+    {
+      "sls_number" : 2,
+      "qos_delay" : 3.8,
+      "qos_throughput" : 30,
+      "packet" : {"alpha": 0.3, "beta": 0.7},
+      "flow" : {
+          "path" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          "epsilon" : 0.01,
+          "alpha": 0.10, "beta": 0.5,
+          "statistic": "weibull/weibull_2_6_0/weibull_2.csv"
+        }
+    },
+    {
+      "sls_number" : 3,
+      "qos_delay" : 1.0,
+      "qos_throughput" : 60,
+      "packet" : {"alpha": 0.3, "beta": 0.7},
+      "flow" : {
+          "path" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          "epsilon" : 0.01,
+          "alpha": 0.05, "beta": 0.5,
+          "statistic": "weibull/weibull_2_6_0/weibull_3.csv"
+        }
+    },
+    {
+      "sls_number" : 4,
+      "qos_delay" : 1.0,
+      "qos_throughput" : 20,
+      "packet" : {"alpha": 0.3, "beta": 0.7},
+      "flow" : {
+          "path" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          "epsilon" : 0.01,
+          "alpha": 0.2, "beta": 0.5,
+          "statistic": "weibull/weibull_2_6_0/weibull_4.csv"
+        }
+    },
+    {
+      "sls_number" : 5,
+      "qos_delay" : 1.0,
+      "qos_throughput" : 20,
+      "packet" : {"alpha": 0.3, "beta": 0.7},
+      "flow" : {
+          "path" : [1, 2, 3, 4, 5],
+          "epsilon" : 0.01,
+          "alpha": 0.2, "beta": 0.5,
+          "statistic": "weibull/weibull_2_6_0/weibull_5.csv"
+        }
+    },
+    {
+      "sls_number" : 6,
+      "qos_delay" : 0.7,
+      "qos_throughput" : 20,
+      "packet" : {"alpha": 0.3, "beta": 0.7},
+      "flow" : {
+          "path" : [3, 4, 5],
+          "epsilon" : 0.01,
+          "alpha": 0.2, "beta": 0.5,
+          "statistic": "weibull/weibull_2_6_0/weibull_6.csv"
+        }
+    }
+  ]
+}

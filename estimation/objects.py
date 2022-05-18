@@ -22,8 +22,8 @@ class Slice:
         self.qos_throughput = throughput_   # требования к пропускной способности слайса
         self.qos_delay = delay_             # требования к задержке слайса
         self.estimate_delay = 0.0           # оценка задержки
-        self.packet_size = packet_          # размер пакетов, передаваемых в слайсе
-        self.packet_size_std = 0.0
+        self.packet_size = sps.weibull_min.mean(packet_["beta"], loc=0, scale=packet_["alpha"])          # размер пакетов, передаваемых в слайсе
+        self.packet_size_std = sps.weibull_min.std(packet_["beta"], loc=0, scale=packet_["alpha"])
         self.sls_sw_set = set()             # множество коммутаторв, через которые проходят потоки слайса
         self.used_sw = set()                # множество коммутаторов из sls_sw_set, на которых уже нельзя изменить qos
         self.leaves = []                    # список всех вершин времен
